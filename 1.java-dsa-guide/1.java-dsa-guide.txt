@@ -1,0 +1,83 @@
+##########################################################################
+- This is the guide I got from Facebook, it's missing a lot of sections, this is the best I can get from what is remained.
+
+--- Lesson 1:
+- Hash Table
+	- https://drive.google.com/file/d/1dzLA44VwTXBpFkYWcpZrZ_bo-q1GGCM6/view
+- Sorting Algorithms:
+	- https://drive.google.com/drive/folders/11aY9ZXrIlSXvvWz1Nt0YXo4NqnRLRcbD
+- Slide:
+	- Missing
+- List & stack & queue: 
+	- Missing
+- Slide Khoa CNTT:
+	- https://drive.google.com/drive/folders/1yxMLAKjjGXQPewhNORApviarOdp_xXN6
+
+--- Lesson 2:
+- Hashing:
+	- Missing
+- Sorting:
+	- Missing
+- List & stack & queue: 
+	- Missing
+
+--- Lesson 3:
+- 500 DSA questions (blocked): 
+	- https://medium.com/techie-delight/500-data-structures-and-algorithms-practice-problems-35afe8a1e222?fbclid=IwAR0MbTLofZVGNXfAa__sX1rnv2rUmHensxrFIFeko5sizB0IzfrhLDI8Ni0_aem_Af0MnQeF0obpXv-CCruWDZisCBFyt9BW2O-8ZjSd08U4P2WViKHXgpclMI5uReGgqFZLTDiXqEDM_1XlHgBN5Bdm
+- Recursion in C: 
+	- https://codeforwin.org/c-programming/functions-programming-exercises-and-solutions-in-c
+- Recursion in Java: 
+	- https://www.softwaretestinghelp.com/recursion-in-java/
+
+--- Lesson 4:
+- Tree
+
+--- Lesson 5:
+- Heap
+
+--- Lesson 6:
+- Graph
+
+--- Lesson 7:
+- BFS and DFS
+
+##########################################################################
+- This is how I would learn + Combining with the DSA old folders.
+
+- Generics
+
+- Linked List
+	- SLL
+	- DLL
+- Stack
+	- Infix -> Postfix -> Prefix
+	- Do a calculator
+- Queue
+	- Priority Queue
+
+- Sorting Algo
+
+- Recursion
+
+- The O notaion:
+
+- Hashing
+
+- BST
+
+- AVL
+
+- Heap
+	- Max Heap
+	- Min Heap
+	- Heap Sort
+
+- Graph
+
+- BFS and DFS
+
+- MST
+
+- Dijsktra
+
+- BellmanFord
