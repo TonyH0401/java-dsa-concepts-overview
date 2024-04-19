@@ -44,7 +44,7 @@
 ##########################################################################
 - This is how I would learn + Combining with the DSA old folders.
 
-- Generics
+- Generics + Overview of ArrayList
 
 - Linked List
 	- SLL
@@ -72,7 +72,7 @@
 	- Min Heap
 	- Heap Sort
 
-- Graph
+- Graph both direction and no direction
 
 - BFS and DFS
 

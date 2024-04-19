@@ -1,0 +1,2 @@
+Generics help us to reuse code, that is all!
+- Use this: https://codelearn.io/sharing/lam-quen-voi-generics-trong-java
