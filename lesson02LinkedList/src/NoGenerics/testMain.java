@@ -15,33 +15,44 @@ public class testMain {
          * Use in a try...catch block because I do throw an error.
          */
         try {
+            // Initialized the Integer Linked List:
             SingleLinkedList intList = new SingleLinkedList();
-            System.out.println("Get the Linked List size: " + intList.size());
-            System.out.println("Is the Linked List empty: " + intList.isEmpty());
-            System.out.println("Linked List contain this value: " + intList.contains(0));
+            // Using some methods to check whether the Linked List work or not:
+            System.out.println("###########################################");
+            System.out.println("Get the Linked List size before data: " + intList.size());
+            System.out.println("Is the Linked List empty before data: " + intList.isEmpty());
+            System.out.println("Does Linked List contain this value before data: " + intList.contains(0));
+            // Adding data to the Linked List:
             System.out.println("###########################################");
             intList.push(1);
             intList.push(10);
             intList.push(100);
             intList.push(1000);
             intList.append(10000);
-            System.out.println("Get the Linked List size: " + intList.size());
-            System.out.println("Is the Linked List empty: " + intList.isEmpty());
-            System.out.println("Linked List contain this value: " + intList.contains(-1));
-            System.out.println("Linked List contain this value: " + intList.contains(10));
-            System.out.println("###########################################");
+            intList.append(20);
+            System.out.println("Get the Linked List size after adding data: " + intList.size());
+            System.out.println("Is the Linked List empty after adding data: " + intList.isEmpty());
+            System.out.println("Does Linked List contain this value: after adding data" + intList.contains(-1));
+            System.out.println("Does Linked List contain this value: after adding data" + intList.contains(10));
             // because getHead and getTail return Node, we use getData to return the data of
             // these Node.
-            System.out.println("Linked List Head: " + intList.getHead().getData());
-            System.out.println("Linked List Tail: " + intList.getTail().getData());
-            System.out.println("###########################################");
             System.out.println("Linked List First: " + intList.getFirst());
             System.out.println("Linked List Last: " + intList.getLast());
-
-            // System.out.println("Is the Linked List empty: " + intList.getFirst());
-            // System.out.println("Is the Linked List empty: " + intList.getLast());
+            System.out.println("Linked List Head (this returns Node): " + intList.getHead().getData());
+            System.out.println("Linked List Tail (this returns Node): " + intList.getTail().getData());
+            System.out.println("Get the data at index 0: " + intList.get(0));
+            System.out.println("Get the data at index 2: " + intList.get(2));
+            System.out.println("###########################################");
+            print(intList);
         } catch (Exception e) {
             System.err.println("> Got an error: " + e.getMessage());
         }
+    }
+
+    public static void print(SingleLinkedList list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " ");
+        }
+        System.out.println();
     }
 }

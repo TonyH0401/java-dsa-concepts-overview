@@ -19,7 +19,7 @@ public interface ListInterface {
 
     public int getLast(); // get the last data of the LinkedList
 
-    // public int get(int index); // get the data by index of the list
+    public int get(int index) throws IndexOutOfBoundsException; // get the data by index of the list
 
     // add data
     public void push(int data); // add new data at the begining

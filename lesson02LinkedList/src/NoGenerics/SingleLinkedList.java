@@ -84,10 +84,30 @@ public class SingleLinkedList implements ListInterface {
         return getTail().getData();
     }
 
-    // @Override
-    // public int get(int index) {
-        
-    // }
+    /*
+     * It returns based on the datatype, so in this case it's int, but in the future
+     * we may use generics.
+     */
+    @Override
+    public int get(int index) throws IndexOutOfBoundsException {
+        if (index < 0)
+            throw new IndexOutOfBoundsException("Out of bound! Negative!");
+        if (index >= size)
+            throw new IndexOutOfBoundsException("Out of bound!");
+        if (head == null)
+            throw new IndexOutOfBoundsException("List is empty!");
+        Node current = head;
+        int currentIndex = 0;
+        while (current != null) {
+            // if the current index = index returns the data
+            if (currentIndex == index)
+                return current.getData();
+            // move to the next node and update the current index
+            current = current.getNext();
+            currentIndex++;
+        }
+        throw new IndexOutOfBoundsException("Out of bound!");
+    }
 
     @Override
     public void push(int data) {
@@ -117,8 +137,11 @@ public class SingleLinkedList implements ListInterface {
 
     @Override
     public void deleteFront() throws NoSuchElementException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteFront'");
+        if (isEmpty())
+            throw new NoSuchElementException("List is empty!");
+        else
+            head = head.getNext();
+        size--;
     }
 
     @Override
