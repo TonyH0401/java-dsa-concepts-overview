@@ -1,0 +1,6 @@
+There are multiple linked list like:
+- Single Linked List (I will cover this)
+    - Simple no Generics
+    - With Generics
+- Double Linked List (Maybe cover this)
+- Circular Linked List
