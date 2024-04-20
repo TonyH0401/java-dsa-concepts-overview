@@ -1,4 +1,4 @@
-package NoGenerics;
+package SLLNoGenerics;
 
 public class testMain {
     public static void main(String[] args) throws Exception {
@@ -30,6 +30,9 @@ public class testMain {
             intList.push(1000);
             intList.append(10000);
             intList.append(20);
+            intList.append(30);
+            intList.append(-10);
+            intList.push(144);
             System.out.println("Get the Linked List size after adding data: " + intList.size());
             System.out.println("Is the Linked List empty after adding data: " + intList.isEmpty());
             System.out.println("Does Linked List contain this value: after adding data" + intList.contains(-1));
@@ -43,6 +46,36 @@ public class testMain {
             System.out.println("Get the data at index 0: " + intList.get(0));
             System.out.println("Get the data at index 2: " + intList.get(2));
             System.out.println("###########################################");
+            print(intList);
+            System.out.println("###########################################");
+            intList.deleteFront();
+            print(intList);
+            System.out.println("###########################################");
+            intList.deleteLast();
+            print(intList);
+            System.out.println("###########################################");
+            System.out.println("Removed LinkedList Front: " + intList.removeFront());
+            print(intList);
+            System.out.println("###########################################");
+            System.out.println("Removed LinkedList Last: " + intList.removeLast());
+            print(intList);
+            System.out.println("###########################################");
+            intList.addAt(2, -20);
+            print(intList);
+            intList.addAt(5, -10);
+            print(intList);
+            System.out.println("###########################################");
+            intList.deleteAt(2);
+            print(intList);
+            System.out.println("###########################################");
+            System.out.println("Removed LinkedList At: " + intList.removeAt(3));
+            print(intList);
+            System.out.println("###########################################");
+            intList.addAt(intList.getHead(), 113);
+            print(intList);
+            intList.addAt(intList.getHead().getNext().getNext(), 113);
+            print(intList);
+            intList.addAt(intList.getTail(), 113);
             print(intList);
         } catch (Exception e) {
             System.err.println("> Got an error: " + e.getMessage());

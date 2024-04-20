@@ -1,4 +1,4 @@
-package NoGenerics;
+package SLLNoGenerics;
 
 public class Node {
     private int data;

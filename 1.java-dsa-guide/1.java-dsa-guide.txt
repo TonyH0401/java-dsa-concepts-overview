@@ -48,14 +48,23 @@
 
 - Linked List
 	- SLL
-	- DLL
+	- DLL (maybe)
+	- CLL (maybe)
 - Stack
 	- Infix -> Postfix -> Prefix
 	- Do a calculator
 - Queue
+	- Normal Queue
 	- Priority Queue
 
-- Sorting Algo
+- Sorting Algorithms:
+	- Selection Sort
+	- Insertion Sort
+	- Bubble Sort
+	- Quick Sort, it's not quick the implementation is quick
+	- Merge Sort
+	- Bucket Sort (maybe)
+	- Radix Sort (maybe)
 
 - Recursion
 

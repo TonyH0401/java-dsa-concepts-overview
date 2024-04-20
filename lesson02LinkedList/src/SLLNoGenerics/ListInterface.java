@@ -1,4 +1,4 @@
-package NoGenerics;
+package SLLNoGenerics;
 
 import java.util.*;
 
@@ -26,14 +26,43 @@ public interface ListInterface {
 
     public void append(int data); // add new data at the end
 
+    public void addAt(int index, int data) throws NoSuchElementException; // add new data based on index
+
     // delete data
     public void deleteFront() throws NoSuchElementException; // delete the head without returning value
 
     public void deleteLast() throws NoSuchElementException; // delete the tail without returning value
 
+    public void deleteAt(int index) throws NoSuchElementException; // delete data at index
+
     // remove data
     public int removeFront() throws NoSuchElementException; // remove the head and return value
 
     public int removeLast() throws NoSuchElementException; // remove the tail and return value
+
+    public int removeAt(int index) throws NoSuchElementException; // remove the data based on index and return value
+
+    // remember to add delete value and remove value
+
+    /*
+     * I believe that these functions below are stupid and unneeded, it's the same
+     * reason people trying to reinvent "the wheel" and then going back to using the
+     * wheel again and then saying the wheel is good.
+     * 
+     * These functions will add and delete data in a linked list based on the given
+     * node.
+     */
+    public void addAt(Node current, int data);
+
+    public void addAfter(Node current, int data);
+
+    // public void addAfter()
+    public void deleteAt(Node current) throws NoSuchElementException;
+
+    public void deleteAfter(Node current) throws NoSuchElementException;
+
+    public int removeAt(Node current) throws NoSuchElementException;
+
+    public int removeAfter(Node current) throws NoSuchElementException;
 
 }
