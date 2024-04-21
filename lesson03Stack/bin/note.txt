@@ -1,4 +1,5 @@
 - Stack works with LIFO which is Last In First Out.
+
 - We use SLL to implement Stack but in the future I will just use the intergrated Stack method.
     - the head in SLL is the top is the Stack, different name but works the same.
     - I will use the Generics version but the datatype I will use is Integer or String for simplicity.
@@ -8,17 +9,13 @@
     - https://www.geeksforgeeks.org/check-if-given-parentheses-expression-is-balanced-or-not/?ref=lbp
     - https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/ (i use this)
 
-
-
 - You gonna learn infix, prefix and postfix; just the theory and concept behind it:
     - https://www.youtube.com/watch?v=jos1Flt21is (infix prefix postfix - part 1)
     - https://www.youtube.com/watch?v=vq-nUF0G4fI (inflix prefix postfix - part 2)
 
-
-
-
-bài 1 quan trọng nhất 2 3 4 5 tương tự (standard problems based on stack) https://www.geeksforgeeks.org/stack-set-2-infix-to-postfix/
-bài số 16 https://www.geeksforgeeks.org/stack-set-4-evaluation-postfix-expression/ (hỗ trợ cho cái ở trên)
+- Read this for calculation post fix:
+    - bài 1 quan trọng nhất 2 3 4 5 tương tự (standard problems based on stack) https://www.geeksforgeeks.org/stack-set-2-infix-to-postfix/
+    - bài số 16 https://www.geeksforgeeks.org/stack-set-4-evaluation-postfix-expression/ (hỗ trợ cho cái ở trên)
 
 
 

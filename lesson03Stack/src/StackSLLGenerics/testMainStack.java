@@ -1,6 +1,6 @@
 package StackSLLGenerics;
 
-public class testMain {
+public class testMainStack {
     public static void main(String[] args) throws Exception {
         try {
             StackSLL<Integer> intStack = new StackSLL<Integer>();
