@@ -77,6 +77,27 @@ public class testMain {
             print(intList);
             intList.addAt(intList.getTail(), 113);
             print(intList);
+            System.out.println("###########################################");
+            System.out.println(
+                    "Remove the node after the head (remove at): "
+                            + intList.removeAt(intList.getHead().getNext().getNext()));
+            print(intList);
+            System.out.println("###########################################");
+            intList.addAfter(intList.getHead().getNext(), -19);
+            print(intList);
+            System.out.println("###########################################");
+            intList.deleteAfter(intList.getHead().getNext());
+            print(intList);
+            System.out.println("###########################################");
+            System.out.println(
+                    "Remove after the head.getnext: " + intList.removeAfter(intList.getHead().getNext().getNext()));
+            print(intList);
+            System.out.println("###########################################");
+            intList.deleteValue(-10);
+            print(intList);
+            System.out.println("###########################################");
+            System.out.println("Remove value: " + intList.removeValue(113));
+            print(intList);
         } catch (Exception e) {
             System.err.println("> Got an error: " + e.getMessage());
         }

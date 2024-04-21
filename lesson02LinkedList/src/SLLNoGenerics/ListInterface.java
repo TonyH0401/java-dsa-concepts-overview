@@ -35,6 +35,8 @@ public interface ListInterface {
 
     public void deleteAt(int index) throws NoSuchElementException; // delete data at index
 
+    public void deleteValue(int data) throws NoSuchElementException; // delete based on value
+
     // remove data
     public int removeFront() throws NoSuchElementException; // remove the head and return value
 
@@ -42,19 +44,20 @@ public interface ListInterface {
 
     public int removeAt(int index) throws NoSuchElementException; // remove the data based on index and return value
 
-    // remember to add delete value and remove value
+    public int removeValue(int data) throws NoSuchElementException;
 
     /*
      * I believe that these functions below are stupid and unneeded, it's the same
      * reason people trying to reinvent "the wheel" and then going back to using the
-     * wheel again and then saying the wheel is good.
+     * wheel again and then saying the wheel is good and denied ever doing anything
+     * else.
      * 
      * These functions will add and delete data in a linked list based on the given
      * node.
      */
     public void addAt(Node current, int data);
 
-    public void addAfter(Node current, int data);
+    public void addAfter(Node current, int data) throws NoSuchElementException;
 
     // public void addAfter()
     public void deleteAt(Node current) throws NoSuchElementException;

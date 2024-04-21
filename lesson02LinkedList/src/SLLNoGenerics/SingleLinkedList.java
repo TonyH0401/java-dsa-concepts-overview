@@ -1,6 +1,5 @@
 package SLLNoGenerics;
 
-import java.nio.file.NoSuchFileException;
 import java.util.*;
 
 public class SingleLinkedList implements ListInterface {
@@ -212,6 +211,24 @@ public class SingleLinkedList implements ListInterface {
         return;
     }
 
+    @Override
+    public void deleteValue(int data) throws NoSuchElementException {
+        if (isEmpty())
+            throw new NoSuchElementException("List is empty!");
+        if (!contains(data))
+            throw new NoSuchElementException("No data contain this!");
+        if (head.getData() == data) {
+            deleteFront();
+            return;
+        }
+        Node ptr = head;
+        while (ptr.getNext().getData() != data)
+            ptr = ptr.getNext();
+        ptr.setNext(ptr.getNext().getNext());
+        size--;
+        return;
+    }
+
     // ######################################################################## //
 
     @Override
@@ -261,6 +278,25 @@ public class SingleLinkedList implements ListInterface {
         return temp.getData();
     }
 
+    
+    @Override
+    public int removeValue(int data) throws NoSuchElementException {
+        if (isEmpty())
+            throw new NoSuchElementException("List is empty!");
+        if (!contains(data))
+            throw new NoSuchElementException("No data contain this!");
+        if (head.getData() == data) {
+            return removeFront();
+        }
+        Node ptr = head;
+        while (ptr.getNext().getData() != data)
+            ptr = ptr.getNext();
+        Node temp = ptr.getNext();
+        ptr.setNext(ptr.getNext().getNext());
+        size--;
+        return temp.getData();
+    }
+
     // ######################################################################## //
 
     @Override
@@ -284,9 +320,22 @@ public class SingleLinkedList implements ListInterface {
     }
 
     @Override
-    public void addAfter(Node current, int data) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addAfter'");
+    public void addAfter(Node current, int data) throws NoSuchElementException {
+        if (isEmpty())
+            throw new NoSuchElementException("List is empty!");
+        if (current.getNext() == null) {
+            append(data);
+            return;
+        }
+        Node temp = new Node(data);
+        Node ptr = head;
+        while (ptr != current) {
+            ptr = ptr.getNext();
+        }
+        temp.setNext(ptr.getNext());
+        ptr.setNext(temp);
+        size++;
+        return;
     }
 
     @Override
@@ -302,29 +351,59 @@ public class SingleLinkedList implements ListInterface {
             return;
         }
         Node ptr = head;
-        while (ptr.getNext() != current) {
-            
-        }
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteAt'");
+        while (ptr.getNext() != current)
+            ptr = ptr.getNext();
+        ptr.setNext(ptr.getNext().getNext());
+        size--;
+        return;
     }
 
     @Override
-    public void deleteAfter(Node current) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteAfter'");
+    public void deleteAfter(Node current) throws NoSuchElementException {
+        if (isEmpty())
+            throw new NoSuchElementException("List is empty!");
+        if (current.getNext() == null)
+            throw new NoSuchElementException("This is the last Node!");
+        Node ptr = head;
+        while (ptr != current)
+            ptr = ptr.getNext();
+        ptr.setNext(ptr.getNext().getNext());
+        size--;
+        return;
     }
 
     @Override
     public int removeAt(Node current) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeAt'");
+        if (isEmpty())
+            throw new NoSuchElementException("List is empty!");
+        if (current == head) {
+            return removeFront();
+        }
+        if (current.getNext() == null) {
+            return removeLast();
+        }
+        Node ptr = head;
+        while (ptr.getNext() != current)
+            ptr = ptr.getNext();
+        Node temp = ptr.getNext();
+        ptr.setNext(ptr.getNext().getNext());
+        size--;
+        return temp.getData();
     }
 
     @Override
     public int removeAfter(Node current) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeAfter'");
+        if (isEmpty())
+            throw new NoSuchElementException("List is empty!");
+        if (current.getNext() == null)
+            throw new NoSuchElementException("This is the last Node!");
+        Node ptr = head;
+        while (ptr != current)
+            ptr = ptr.getNext();
+        Node temp = ptr.getNext();
+        ptr.setNext(ptr.getNext().getNext());
+        size--;
+        return temp.getData();
     }
 
 }
