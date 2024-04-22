@@ -51,12 +51,14 @@
 	- DLL (maybe)
 	- CLL (maybe)
 - Stack
+	- Normal Stack
+	- Balance Parentheses
 	- Infix -> Postfix -> Prefix
-	- Do a calculator
+	- Do a calculator, I did single digits not multi-digits
 - Queue
 	- Normal Queue
-	- Priority Queue
-
+	- Queue using Stack
+	
 - Sorting Algorithms:
 	- Selection Sort
 	- Insertion Sort
@@ -77,6 +79,7 @@
 - AVL
 
 - Heap
+	- Priority Queue (closely related to Heap)
 	- Max Heap
 	- Min Heap
 	- Heap Sort
