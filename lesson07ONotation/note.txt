@@ -1,0 +1,7 @@
+- Learn this: https://www.bigocheatsheet.com/
+- A loop is O(n)
+- Loop within Loop is O(n^2) or O(n*m) same with multiple loops
+- Pick the largest O notation
+- Any number before is removed like O(3n) is O(n)
+- Divided is O(n/2)
+- Divided by recursion is sometimes O(logn)

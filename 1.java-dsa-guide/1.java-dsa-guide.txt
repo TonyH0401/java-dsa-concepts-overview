@@ -61,8 +61,8 @@
 	
 - Sorting Algorithms:
 	- Selection Sort
-	- Insertion Sort
 	- Bubble Sort
+	- Insertion Sort
 	- Quick Sort, it's not quick the implementation is quick
 	- Merge Sort
 	- Bucket Sort (maybe)
@@ -70,11 +70,16 @@
 
 - Recursion
 
-- The O notaion:
+- The O notaion
 
-- Hashing
+- Searching Algorithms
 
-- BST
+- Hashing, Hash Table
+
+- Binary Search Tree (BST)
+	- BST
+	- Left and Right Skewed
+	- Post order and Pre order
 
 - AVL
 

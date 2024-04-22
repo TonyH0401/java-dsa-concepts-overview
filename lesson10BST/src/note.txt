@@ -1,0 +1,21 @@
+- We skip the Tree and move to BST, I think the reason I skipped is how similar they are:
+    - Use this for a more visual appoarch: https://visualgo.net/en/bst.
+
+- Types of BST, this is my overview:
+    - BST 
+    - Left Skewed/Right Skewed
+    - AVL the differences between branches is 0 or 1 (later)
+
+- BST Depth and Height explained:
+    - https://mdkulkarni76.medium.com/height-and-depth-of-a-binary-tree-2a9f115eeee9
+    - The layer/height starts at 0 but the depth counts at 1
+
+- Post order:
+    - Left -> Right -> Root
+    - https://www.codecademy.com/resources/docs/general/binary-search-tree/postorder-traversal
+    - https://www.techiedelight.com/postorder-tree-traversal-iterative-recursive/
+
+- Pre order:
+    - Root -> Left -> Right
+    - https://www.codecademy.com/resources/docs/general/binary-search-tree/preorder-traversal
+    - https://youtu.be/WLvU5EQVZqY?si=Wh01EDtDo_nmz1ir (the thumbnail)

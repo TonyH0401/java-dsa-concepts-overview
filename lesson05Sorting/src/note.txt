@@ -1,0 +1,13 @@
+- We gonna use Array to implement these.
+- They gonna be more complex down the line.
+- You should know by heart the first 3.
+	- Insertion Sort: https://s-satsangi.medium.com/insertion-sort-selection-sort-and-bubble-sort-5eb16d55a4de
+	- Bubble Sort: https://s-satsangi.medium.com/insertion-sort-selection-sort-and-bubble-sort-5eb16d55a4de
+	- Selection Sort: https://s-satsangi.medium.com/insertion-sort-selection-sort-and-bubble-sort-5eb16d55a4de
+	- Quick Sort, it's not quick the implementation is quick
+	- Merge Sort
+		- You need to learn how to merge 2 sorted array.	
+	- Bucket Sort (maybe)
+	- Radix Sort (maybe)
+	- Count Sort (maybe)
+	- Shell Sort (maybe)

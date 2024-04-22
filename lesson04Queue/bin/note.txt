@@ -8,4 +8,5 @@
 - Queue using Stack:
     - I was trying to implement Queue using the intergrated Stack (because I was lazy)
     but I found out that I don't know what the Node is so I end up make a custom one.
-    - I say it's quite easy.
+    - I say it's quite easy. Using s1 as the main Stack and s2 as the assist Stack,
+    I just need to pop one while push the other.

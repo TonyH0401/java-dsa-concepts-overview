@@ -1,0 +1,2 @@
+- I hate recursion, quote from 1 of my professor "it is the worst", I prefer using a loop.
+- I will not go indepth for recursion but will display the code.
