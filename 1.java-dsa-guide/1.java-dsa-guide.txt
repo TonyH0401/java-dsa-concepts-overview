@@ -91,7 +91,7 @@
 
 - Graph both direction and no direction
 
-- BFS and DFS
+- BFS and DFS for graph
 
 - MST
 
