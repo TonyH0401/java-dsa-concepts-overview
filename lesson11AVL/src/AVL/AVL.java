@@ -1,10 +1,10 @@
 package AVL;
 
 /* 'E extends Comparable<E>' add this to use compareTo() with generics datatype E, I forgot where I took this from. */
-public class AST<E extends Comparable<E>> {
+public class AVL<E extends Comparable<E>> {
     private Node<E> root;
 
-    public AST() {
+    public AVL() {
         this.root = null;
     }
 
@@ -19,7 +19,10 @@ public class AST<E extends Comparable<E>> {
     // ######################################################################## //
 
     private Node<E> rotateLeft(Node<E> x) {
-        
+        Node<E> y = x.getRight();
+        x.setRight(y.getLeft());
+        y.setLeft(x);
+        // x.setRight();
     }
 
 
