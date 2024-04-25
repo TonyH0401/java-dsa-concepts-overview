@@ -18,13 +18,39 @@ public class AVL<E extends Comparable<E>> {
 
     // ######################################################################## //
 
+    /* Check if the tree is balanced. Returns boolean values. */
+    private boolean isBalance(Node<E> node) {
+        int factor = getDepth(node.getLeft()) - getDepth(node.getRight());
+        /*
+         * The tree is balanced if the depth is -1 or 0 or 1, so if it's larger or
+         * lesser than that, the tree is not balanced.
+         */
+        if (factor > 1 || factor < -1)
+            return false;
+        return true;
+    }
+
+    /*
+     * This returns the lean value of the tree, if this value is 1 the tree is
+     * leaning right, if this value is -1 the tree is leaning left, if this value is
+     * 0 the tree is balanced.
+     */
+    private int treeLeanValue(Node<E> node) {
+        if (node == null)
+            return 0;
+        return getDepth(node.getLeft()) - getDepth(node.getRight());
+    }
+
+    // ######################################################################## //
+
     private Node<E> rotateLeft(Node<E> x) {
         Node<E> y = x.getRight();
         x.setRight(y.getLeft());
         y.setLeft(x);
-        // x.setRight();
+        x.setDepth(1 + Math.max(getDepth(x.getLeft()), getDepth(x.getRight())));
+        y.setDepth(1 + Math.max(getDepth(y.getLeft()), getDepth(y.getRight())));
+        return y;
     }
-
 
     // ######################################################################## //
 
@@ -193,11 +219,11 @@ public class AVL<E extends Comparable<E>> {
     }
 
     // ######################################################################## //
-    
+
     public void postOrder() {
         postOrder(root, 0);
     }
-    
+
     public void postOrder(Node<E> node, int level) {
         if (node == null) {
             return;
@@ -221,6 +247,5 @@ public class AVL<E extends Comparable<E>> {
         preOrder(node.getLeft(), level + 1);
         preOrder(node.getRight(), level + 1);
     }
-
 
 }

@@ -1,8 +1,8 @@
 - I highly advised you to checkout BST before this
 - AVL a.k.a balanced BST
+    - It is much the same as BST but it also has "depth" property because we need this depth to check if
+    the tree is balanced. 
 
-
-- It is much the same as BST 
 
 
 balanced is when the different is 0 or 1
@@ -13,3 +13,6 @@ balanced is when the different is 0 or 1
 
 ô mạnh là khi insert thì nó insert theo kiểu balance luôn
 trong lab có bài là insert bth trc sau đó ktr xem nó có balance hay ko
+
+
+
