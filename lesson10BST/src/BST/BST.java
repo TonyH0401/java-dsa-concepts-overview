@@ -129,7 +129,7 @@ public class BST<E extends Comparable<E>> {
 
     private Node<E> deleteMin(Node<E> node) {
         if (node.getLeft() == null)
-            return null;
+            return node.getRight();
         node.setLeft(deleteMin(node.getLeft()));
         return node;
     }
