@@ -18,9 +18,21 @@ public class AVL<E extends Comparable<E>> {
 
     // ######################################################################## //
 
+    /*
+     * This is different, this will return the height of the node instead of the
+     * tree. I need to change the name to a more suitable one.
+     */
+    private int height(Node<E> node) {
+        if (node == null)
+            return 0;
+        return node.getDepth();
+    }
+
+    // ######################################################################## //
+
     /* Check if the tree is balanced. Returns boolean values. */
     private boolean isBalance(Node<E> node) {
-        int factor = getDepth(node.getLeft()) - getDepth(node.getRight());
+        int factor = height(node.getLeft()) - height(node.getRight());
         /*
          * The tree is balanced if the depth is -1 or 0 or 1, so if it's larger or
          * lesser than that, the tree is not balanced.
@@ -38,17 +50,31 @@ public class AVL<E extends Comparable<E>> {
     private int treeLeanValue(Node<E> node) {
         if (node == null)
             return 0;
-        return getDepth(node.getLeft()) - getDepth(node.getRight());
+        return height(node.getLeft()) - height(node.getRight());
     }
 
     // ######################################################################## //
+
+    /*
+     * These are the rotations used for making the tree balanced. There are left
+     * rotaion and right rotation.
+     */
 
     private Node<E> rotateLeft(Node<E> x) {
         Node<E> y = x.getRight();
         x.setRight(y.getLeft());
         y.setLeft(x);
-        x.setDepth(1 + Math.max(getDepth(x.getLeft()), getDepth(x.getRight())));
-        y.setDepth(1 + Math.max(getDepth(y.getLeft()), getDepth(y.getRight())));
+        x.setDepth(1 + Math.max(height(x.getLeft()), height(x.getRight())));
+        y.setDepth(1 + Math.max(height(y.getLeft()), height(y.getRight())));
+        return y;
+    }
+
+    private Node<E> rotateRight(Node<E> x) {
+        Node<E> y = x.getLeft();
+        x.setLeft(y.getRight());
+        y.setRight(x);
+        x.setDepth(1 + Math.max(height(x.getLeft()), height(x.getRight())));
+        y.setDepth(1 + Math.max(height(y.getLeft()), height(y.getRight())));
         return y;
     }
 
@@ -64,15 +90,32 @@ public class AVL<E extends Comparable<E>> {
      * method of comparing.
      */
     private Node<E> insert(Node<E> node, E data) {
+        /* This part is the normal BST */
         if (node == null)
             return new Node<E>(data);
         if (data.compareTo(node.getData()) > 0) {
             node.setRight(insert(node.getRight(), data));
         } else if (data.compareTo(node.getData()) < 0) {
             node.setLeft((insert(node.getLeft(), data)));
+        } else
+            return node;
+        /* This is where AVL starts. */
+        node.setDepth(1 + (int) Math.max((double) height(node.getLeft()), (double) height(node.getRight())));
+        /* Auto balance the tree at insert. */
+        if (isBalance(node))
+            return node;
+        if ((node.getLeft() != null) && (data.compareTo(node.getLeft().getData()) < 0))
+            return rotateRight(node);
+        if ((node.getRight() != null) && (data.compareTo(node.getRight().getData()) > 0))
+            return rotateLeft(node);
+        if ((node.getLeft() != null) && (data.compareTo(node.getLeft().getData()) > 0)) {
+            node.setLeft(rotateLeft(node.getLeft()));
+            return rotateRight(node);
         }
-        // I should add something called incretement frequency (at = 0), probably to the
-        // Node.
+        if ((node.getRight() != null) && (data.compareTo(node.getRight().getData()) < 0)) {
+            node.setRight(rotateRight(node.getRight()));
+            return rotateLeft(node);
+        }
         return node;
     }
 
@@ -165,7 +208,7 @@ public class AVL<E extends Comparable<E>> {
 
     private Node<E> deleteMin(Node<E> node) {
         if (node.getLeft() == null)
-            return null;
+            return node.getRight();
         node.setLeft(deleteMin(node.getLeft()));
         return node;
     }
@@ -177,44 +220,75 @@ public class AVL<E extends Comparable<E>> {
             System.err.println("> No data to be deleted exist!");
             return;
         } else {
-            delete(root, data);
+            root = delete(root, data);
         }
     }
 
     private Node<E> delete(Node<E> node, E data) {
-        if (node == null)
+        /* This section is from the normal BST */
+        if (node == null) {
             return null;
-        /* These are used to locate the node to be deleted */
+        }
         if (data.compareTo(node.getData()) < 0) {
             node.setLeft(delete(node.getLeft(), data));
         } else if (data.compareTo(node.getData()) > 0) {
             node.setRight(delete(node.getRight(), data));
         } else {
-            /* Delete a node with 1 child a.k.a a leaf */
+            // delete a node with one child a.k.a a leaf
             if (node.getRight() == null)
                 return node.getLeft();
             if (node.getLeft() == null)
                 return node.getRight();
-            /* Delete a node with 2 chidlren */
+
+            // delete a node with two children
             Node<E> t = node;
             node = min(t.getRight());
             node.setRight(deleteMin(t.getRight()));
             node.setLeft(t.getLeft());
+        }
+        /* This section is the AVL section: */
+        // update the height
+        node.setDepth(1 + (int) Math.max((double) height(node.getLeft()), (double) height(node.getRight())));
+        // check if the tree is balanced
+        if (isBalance(node)) {
+            return node;
+        }
+        // if the tree is not balanced, get the tree leaning value. there are 4 cases
+        int balance = treeLeanValue(node);
+        // Left Left Case
+        if (balance > 1 && treeLeanValue(node.getLeft()) >= 0)
+            return rotateRight(node);
+        // Left Right Case
+        if (balance > 1 && treeLeanValue(node.getLeft()) < 0) {
+            node.setLeft(rotateLeft(node.getLeft()));
+            return rotateRight(node);
+        }
+        // Right Right Case
+        if (balance < -1 && treeLeanValue(node.getRight()) <= 0)
+            return rotateLeft(node);
+        // Right Left Case
+        if (balance < -1 && treeLeanValue(node.getLeft()) > 0) {
+            node.setRight(rotateRight(node.getRight()));
+            return rotateLeft(node);
         }
         return node;
     }
 
     // ######################################################################## //
 
-    public int getDepth() {
-        return getDepth(root);
+    /*
+     * We need to change from getDepth() to getTreeDepth() because Node has another
+     * value called getDepth() and we do not want to confuse between the 2.
+     */
+    public int getTreeDepth() {
+        return getTreeDepth(root);
     }
 
-    private int getDepth(Node<E> node) {
+    private int getTreeDepth(Node<E> node) {
         if (node == null)
             return 0;
-        int leftHeight = getDepth(node.getLeft());
-        int rightHeight = getDepth(node.getRight());
+        int leftHeight = getTreeDepth(node.getLeft());
+        int rightHeight = getTreeDepth(node.getRight());
         return (1 + Math.max(leftHeight, rightHeight));
     }
 

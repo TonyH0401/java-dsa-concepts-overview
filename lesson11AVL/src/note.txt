@@ -1,18 +1,17 @@
 - I highly advised you to checkout BST before this
+
 - AVL a.k.a balanced BST
     - It is much the same as BST but it also has "depth" property because we need this depth to check if
     the tree is balanced. 
 
+- A BST is marked as balanced if the height different between the longest layers
+and the shortest is 0 or 1
 
-
-balanced is when the different is 0 or 1
-
-- Version 1 insert then check if balance
-- Version 2 balance-ish insert
-
-
-ô mạnh là khi insert thì nó insert theo kiểu balance luôn
-trong lab có bài là insert bth trc sau đó ktr xem nó có balance hay ko
+- balanced is when the different is 0 or 1
+    - Version 1 insert then check if balance
+    - Version 2 balance-ish insert
+    - ô mạnh là khi insert thì nó insert theo kiểu balance luôn
+    - trong lab có bài là insert bth trc sau đó ktr xem nó có balance hay ko
 
 
 
