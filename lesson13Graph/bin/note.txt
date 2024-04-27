@@ -1,0 +1,8 @@
+- Graph is a data structure, it include infite graph and finite graph.
+
+- The graph itself also has undirected graph and directed graph.
+
+- These are how the graph is represented:
+    - Edge list
+    - Adjacency matrix
+    - Adjacency list

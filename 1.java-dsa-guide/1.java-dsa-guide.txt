@@ -89,14 +89,9 @@
 	- Heap Sort (maybe)
 	- Priority Queue (closely related to Heap) (maybe)
 
-
-
 - Graph both direction and no direction
-
 - BFS and DFS for graph
 
 - Minimum Spaning Tree
-
-- Dijsktra
-
-- BellmanFord
+	- Dijsktra
+	- BellmanFord
