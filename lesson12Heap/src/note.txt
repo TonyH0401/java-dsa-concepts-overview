@@ -1,0 +1,11 @@
+- You need to study BST -> AVL
+
+- Heap is a tree like datatype, more like an AVL tree but they are different,
+instead of right being larger and left being smaller, the heap has max heap
+and min heap, with max heap the tree is always bigger than the root and
+for the min heap the tree is always smaller than the root but they are
+balanced tree.
+
+- There is also a heap sort (maybe I will cover this in the future)
+
+- There is also priority queue (maybe I will cover this in the future)
