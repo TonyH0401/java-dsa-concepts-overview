@@ -4,8 +4,12 @@
 instead of right being larger and left being smaller, the heap has max heap
 and min heap, with max heap the tree is always bigger than the root and
 for the min heap the tree is always smaller than the root but they are
-balanced tree.
+balanced tree. But in the end they are array.
 
 - There is also a heap sort (maybe I will cover this in the future)
 
 - There is also priority queue (maybe I will cover this in the future)
+
+http://btv.melezinek.cz/binary-heap.html max heap
+
+https://www.cs.usfca.edu/~galles/visualization/Heap.html min heap

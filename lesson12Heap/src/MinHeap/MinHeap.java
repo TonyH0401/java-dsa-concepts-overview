@@ -1,7 +1,5 @@
 package MinHeap;
 
-import javax.management.RuntimeErrorException;
-
 public class MinHeap {
     private int[] heap;
     private int maxSize;
@@ -77,17 +75,47 @@ public class MinHeap {
                 min = heap[left(i)];
                 minId = left(i);
             }
-            
+            if ((right(i) <= heapSize) && (min > heap[right(i)])) {
+                min = heap[right(i)];
+                minId = right(i);
+            }
+            if (minId != i) {
+                swap(minId, i);
+                i = minId;
+            } else {
+                break;
+            }
         }
     }
 
-    // public void insert(int data) {
-    // if(heapSize == maxSize) {
-    // throw new RuntimeException("Maximum Capacity!");
-    // }
-    // heapSize += 1;
-    // heap[heapSize] = key;
+    // ########################################################
 
-    // }
+    public void insert(int data) {
+        if (heapSize == maxSize) {
+            throw new RuntimeException("Maximum Capacity!");
+        }
+        heapSize += 1;
+        heap[heapSize] = data;
+        shiftUp(heapSize);
+    }
 
+    public int extractMin() {
+        if (heapSize == 0) {
+            throw new RuntimeException("Empty Heap");
+        }
+        int max = heap[1];
+        heap[1] = heap[heapSize];
+        heapSize = heapSize - 1;
+        shiftDown(1);
+        return max;
+    }
+
+    // ########################################################
+
+    public void print() {
+        for (int i = 1; i <= heapSize; i++) {
+            System.out.print(heap[i] + " ");
+        }
+        System.out.println();
+    }
 }
