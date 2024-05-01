@@ -6,3 +6,5 @@
     - Edge list
     - Adjacency list
     - Adjacency matrix
+
+- We will also gloss over BFS and DFS for Graph

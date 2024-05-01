@@ -4,8 +4,10 @@ import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
 import GraphInterfaces.*;
+import AdjacencyList.AdjacencyList;
 
 public class AdjacencyMatrix implements GraphInterface, GraphTraverse {
     private int size;
@@ -123,32 +125,76 @@ public class AdjacencyMatrix implements GraphInterface, GraphTraverse {
 
     @Override
     public void BFS(int s) {
-        // if (s < 1 || s > size)
-        //     throw new RuntimeException("Invalid Input!");
-        // boolean[] visited = new boolean[size];
-        // Queue<Integer> queue = new LinkedList<Integer>();
+        if (s < 1 || s > size)
+            throw new RuntimeException("Invalid Input!");
+        boolean[] visited = new boolean[size];
+        Queue<Integer> queue = new LinkedList<Integer>();
 
-        // visited[s] = true;
-        // queue.add(s);
+        visited[s] = true;
+        queue.add(s);
 
-        // while (!queue.isEmpty()) {
-        //     int x = queue.poll();
-        //     System.out.print((x + 1) + " ");
-        //     for (int i = 0; i < size; i++) {
-        //         if (adj[x][i] != 0 && visited[i] == false) {
-        //             queue.add(i);
-        //             visited[i] = true;
-        //         }
-        //     }
-        // }
+        while (!queue.isEmpty()) {
+            int x = queue.poll();
+            System.out.print((x + 1) + " ");
+            for (int i = 0; i < size; i++) {
+                if (adj[x][i] != 0 && visited[i] == false) {
+                    queue.add(i);
+                    visited[i] = true;
+                }
+            }
+        }
+        System.out.println();
     }
 
     @Override
     public void DFS(int s) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'DFS'");
+        Stack<Integer> stack = new Stack<>();
+        boolean[] visited = new boolean[size];
+
+        s -= 1;
+        visited[s] = true;
+        stack.push(s);
+
+        while (!stack.isEmpty()) {
+            int x = stack.pop();
+            System.out.print(x + 1 + " ");
+
+            for (int i = 0; i < size; i++) {
+                if (!visited[i] && adj[x][i] == 1) {
+                    stack.push(i);
+                    visited[i] = true;
+                }
+            }
+        }
+        System.out.println();
     }
 
     // ######################################################################## //
+
+    public boolean isReachable(int u, int v) {
+        if (u < 1 || u > size || v < 1 || v > size) {
+            throw new RuntimeException("Invalid Input");
+        }
+        if (hasEdge(u, v) == true)
+            return true;
+        return false;
+    }
+
+    public AdjacencyList convertToAL() {
+        LinkedList<Integer>[] new_adj = new LinkedList[size];
+        for (int i = 0; i < size; i++) {
+            new_adj[i] = new LinkedList<Integer>();
+        }
+
+        for (int i = 0; i < size; i++) {
+            new_adj[i].addLast(i);
+            for (int j = 0; j < size; j++) {
+                if (adj[i][j] != 0) {
+                    new_adj[i].addLast(j);
+                }
+            }
+        }
+        return new AdjacencyList(new_adj, size, edges);
+    }
 
 }
