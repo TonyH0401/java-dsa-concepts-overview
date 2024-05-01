@@ -33,6 +33,8 @@ public class AdjacencyList implements GraphInterface {
         this.adj = adj;
     }
 
+    // ######################################################################## //
+
     @Override
     public void readFile(String dir) {
         File file = null;
