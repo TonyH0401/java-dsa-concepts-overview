@@ -7,4 +7,5 @@ This is an overview about concepts of DSA using Java. This is just a small secti
 
 1. Check the file **1.java-dsa-guide/1.java-dsa-guide.txt** for the instruction + notes + paths you can research.
 2. The DSA topics is categorized in different folders, check each of them for the correspond topic.
+3. Happy coding.
 
