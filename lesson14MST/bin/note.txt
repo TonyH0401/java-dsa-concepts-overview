@@ -1,0 +1,7 @@
+- MST - Minum Span Tree - Shortest Path, we will cover these topics:
+    - First, you gonna learn and make a "Union Find"
+	- Prim's
+	- Kruskal's
+	- Dijsktra (maybe)
+	- BellmanFord (maybe)
+	- A* (maybe)
