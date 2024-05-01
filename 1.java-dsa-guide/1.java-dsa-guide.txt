@@ -89,8 +89,12 @@
 	- Heap Sort (maybe)
 	- Priority Queue (closely related to Heap) (maybe)
 
-- Graph both direction and no direction
-- BFS and DFS for graph
+- Graph
+	- Overview: we got finite/infinite and direction/no-direction
+	- Edge List
+	- Adjacency List
+	- Adjacency Matrix
+	- BFS and DFS for Graph
 
 - Minimum Spaning Tree
 	- Dijsktra
