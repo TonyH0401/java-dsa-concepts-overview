@@ -9,6 +9,13 @@ public class AdjacencyList implements GraphInterface {
     private int edges;
     private LinkedList<Integer>[] adj; // I think this is an array of linked list
 
+    public AdjacencyList(LinkedList<Integer>[] adj, int size, int edges) {
+        this.adj = adj;
+        this.size = size;
+        this.edges = edges;
+    }
+
+
     public int getSize() {
         return this.size;
     }
