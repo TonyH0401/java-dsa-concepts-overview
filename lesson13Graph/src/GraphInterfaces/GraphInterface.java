@@ -1,6 +1,8 @@
 package GraphInterfaces;
 
 public interface GraphInterface {
+    public void readFile(String dir);
+
     public int numOfVertex();
 
     public int numOfEdge();
