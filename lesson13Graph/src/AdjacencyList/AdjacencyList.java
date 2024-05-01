@@ -35,32 +35,76 @@ public class AdjacencyList implements GraphInterface {
 
     @Override
     public void readFile(String dir) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'readFile'");
+        File file = null;
+        Scanner scan = null;
+        String line = "";
+        try {
+            /* Init */
+            file = new File(dir);
+            scan = new Scanner(file);
+            /*  */
+            this.size = scan.nextInt();
+            scan.nextLine();
+            this.adj = new LinkedList[size];
+
+            int count = 0;
+
+            for (int i = 0; i < size; i++) {
+                line = scan.nextLine();
+                String[] numbers = line.split(" ");
+                int index = Integer.parseInt(numbers[0]);
+                adj[index] = new LinkedList<>();
+
+                for (int j = 0; j < numbers.length; j++) {
+                    int x = Integer.parseInt(numbers[j]);
+                    adj[index].addLast(x);
+
+                    count++;
+                }
+            }
+            this.edges = count / 2;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        } finally {
+            scan.close();
+        }
     }
 
     @Override
     public int numOfVertex() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'numOfVertex'");
+        return size;
     }
 
     @Override
     public int numOfEdge() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'numOfEdge'");
+        return edges;
     }
 
     @Override
     public void enumerateNeighbor(int u) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'enumerateNeighbor'");
+        if (u < 1 || u > size) {
+            throw new RuntimeException("Invalid");
+        }
+        u -= 1;
+        LinkedList<Integer> list = adj[u];
+        for (int i = 1; i < list.size(); i++) {
+            int value = 1 + list.get(i);
+            System.out.print(value + " ");
+        }
+        System.out.println();
     }
 
     @Override
     public boolean hasEdge(int u, int v) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'hasEdge'");
+        if (u < 1 || u > size || v < 1 || v > size) {
+            throw new RuntimeException("Invalid");
+        }
+        u -= 1;
+        v -= 1;
+        LinkedList<Integer> list = adj[u];
+        return list.contains(v);
     }
 
     @Override
