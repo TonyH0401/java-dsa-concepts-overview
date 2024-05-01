@@ -4,5 +4,5 @@
 
 - These are how the graph is represented:
     - Edge list
-    - Adjacency matrix
     - Adjacency list
+    - Adjacency matrix
