@@ -8,6 +8,7 @@ public class testMain {
             String dir2 = "src\\EdgeList\\EL2.txt";
             el.readFile(dir1);
             el.print();
+            System.out.println("===================");
             el.kruskal();
         } catch (Exception e) {
             System.err.println(e.getMessage());

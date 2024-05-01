@@ -100,6 +100,7 @@ public class EdgeList implements GraphInterface {
 
     // ######################################################################## //
 
+    /* Give is the sorted way + the weight of this way */
     public void kruskal() {
         edges.sort(new Comparator<Edge>() {
             @Override

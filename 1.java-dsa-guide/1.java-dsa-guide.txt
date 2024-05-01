@@ -96,6 +96,10 @@
 	- Adjacency Matrix
 	- BFS and DFS for Graph
 
-- Minimum Spaning Tree
-	- Dijsktra
-	- BellmanFord
+- Minimum Spaning Tree (shortest path):
+	- First, you gonna learn and make a Union Find
+	- Prim's
+	- Kruskal's
+	- Dijsktra (maybe)
+	- BellmanFord (maybe)
+	- A* (maybe)
