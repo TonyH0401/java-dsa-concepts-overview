@@ -16,6 +16,11 @@ public class AdjacencyList implements GraphInterface {
     }
 
 
+    public AdjacencyList() {
+        //TODO Auto-generated constructor stub
+    }
+
+
     public int getSize() {
         return this.size;
     }
