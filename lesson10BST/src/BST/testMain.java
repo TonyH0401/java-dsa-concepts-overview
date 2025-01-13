@@ -17,18 +17,29 @@ public class testMain {
         // Display the BST:
         System.out.println("> Display the BST:");
         bst.print();
-        // Testing methods:
+
+        // Test `contains()` method:
         System.out.println("> Check if variable 96 exist: " + bst.contains(96));
         System.out.println("> Check if variable 100 exist: " + bst.contains(100));
+
+        // Test `min()` and `max()` method:
         System.out.println("> Get BST Min: " + bst.min());
         System.out.println("> Get BST Max: " + bst.max());
+
+        // Test `deleteMin()` method:
         bst.deleteMin();
         System.out.println("> Display the BST after delete Min:");
         bst.print();
+
+        // Test `deleteMax()` method:
         bst.deleteMax();
         System.out.println("> Display the BST after delete Max:");
         bst.print();
+
+        // Test deleting a non-existence value:
         bst.delete(-100);
+
+        // Test deleting a value:
         bst.delete(96);
         System.out.println("> Display the BST after delete 96:");
         bst.print();
@@ -36,6 +47,7 @@ public class testMain {
         System.out.println("> Display the BST after delete 5:");
         bst.print();
         System.out.println("> Get BST Depth: " + bst.getDepth());
+
         // Right Skewed:
         BST<Integer> bstRS = new BST<Integer>();
         bstRS.insert(1);
@@ -43,6 +55,7 @@ public class testMain {
         bstRS.insert(3);
         System.out.println("> Display the BST Right Skewed:");
         bstRS.print();
+
         // Left Skewed:
         BST<Integer> bstLS = new BST<Integer>();
         bstLS.insert(3);
@@ -50,6 +63,7 @@ public class testMain {
         bstLS.insert(1);
         System.out.println("> Display the BST Left Skewed:");
         bstLS.print();
+
         // Post order and Pre order:
         System.out.println("> Display the BST Post Order:");
         bst.postOrder();
