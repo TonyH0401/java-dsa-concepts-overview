@@ -3,3 +3,8 @@
 	- Hashing Function which are functions used for Hashing
 	- Collision which are the prevent of 2 data having the same hash
 	- Hashing Table which are in table format
+
+- HashTable and HashMap are generally the same thing, they are a pair of key-value array
+The only thing that is difference is HashTable is thread safe.
+
+- There is something similar over at Python called `dict`.
