@@ -1,5 +1,7 @@
 package BST;
 
+import java.util.ArrayList;
+
 public class testMain {
     public static void main(String[] args) throws Exception {
         // Initialize BST:
@@ -64,10 +66,27 @@ public class testMain {
         System.out.println("> Display the BST Left Skewed:");
         bstLS.print();
 
-        // Post order and Pre order:
-        System.out.println("> Display the BST Post Order:");
-        bst.postOrder();
+        // Pre-order + In-order + Post order:
         System.out.println("> Display the BST Pre Order:");
         bst.preOrder();
+        System.out.println("> Display the BST In Order:");
+        bst.inOrder();
+        System.out.println("> Display the BST Post Order:");
+        bst.postOrder();
+
+        // Level Order Traversal - BFS Using ArrayList
+        System.out.println("> Testing Level Order Traversal - BFS");
+        ArrayList<ArrayList<Integer>> result = bst.levelOrderBFS(bst.getRoot());
+        for (ArrayList<Integer> level : result) {
+            for (int data : level) {
+                System.out.print(data + " ");
+            }
+        }
+        System.out.println();
+
+        // Level Order Traversal - BFS Using Queue
+        System.out.println("> Testing Level Order Traversal - BFS Using Queue");
+        bst.levelOrderBFSUsingQueue(bst.getRoot());
+
     }
 }
