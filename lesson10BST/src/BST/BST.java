@@ -1,6 +1,11 @@
 package BST;
 
-/* 'E extends Comparable<E>' add this to use compareTo() with generics datatype E, I forgot where I took this from. */
+/* I suggest only import packages which you need in order to save storage. */
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.LinkedList;
+
+/* Note: 'E extends Comparable<E>' add this to use compareTo() with generics datatype E, I forgot where I took this from. */
 public class BST<E extends Comparable<E>> {
     private Node<E> root;
 
@@ -221,9 +226,72 @@ public class BST<E extends Comparable<E>> {
 
     // ######################################################################## //
 
-    // public void levelOrderBFS() {
-    //     return;
-    // }
+    /*
+     * Level Order Traversal or BFS is where the order of traversal is level base,
+     * where all nodes present in the same level are traversed completely before
+     * traversing the next level.
+     */
 
-    // public 
+    /*
+     * In this implementation, I used ArrayList. Each ArrayList represents a level
+     * within the BST and all of those ArrayList (level) are collected into a bigger
+     * ArrayList.
+     */
+
+    public ArrayList<ArrayList<E>> levelOrderBFS(Node<E> root) {
+        ArrayList<ArrayList<E>> result = new ArrayList<>();
+        levelOrderBFS(root, 0, result);
+        return result;
+    }
+
+    public void levelOrderBFS(Node<E> root, int level, ArrayList<ArrayList<E>> result) {
+        if (root == null) {
+            return;
+        }
+        // Add an additional level for safe keeping.
+        if (result.size() <= level) {
+            result.add(new ArrayList<>());
+        }
+        // Add data to its corresponding level.
+        result.get(level).add(root.getData());
+        // Traverse the left and the right of the tree with an increment level of 1.
+        levelOrderBFS(root.getLeft(), level + 1, result);
+        levelOrderBFS(root.getRight(), level + 1, result);
+    }
+
+    // ######################################################################## //
+
+    /*
+     * Level Order Traversal or BFS is where the order of traversal is level base,
+     * where all nodes present in the same level are traversed completely before
+     * traversing the next level.
+     */
+
+    /*
+     * In this implementation, I used Queue. I will enqueue and dequeue each level
+     * of the tree. Enqueue and dequeue the first level. Moving to the next level of
+     * left and right, using enqueue and dequeue at the same time.
+     */
+
+    public void levelOrderBFSUsingQueue(Node<E> root) {
+        if (root == null) {
+            return;
+        }
+        Queue<Node<E>> queue = new LinkedList<>();
+        queue.add(root);
+        // This is where the loop start
+        while (!queue.isEmpty()) {
+            // Dequeue a node
+            Node<E> current = queue.poll();
+            System.out.print(current.getData() + " ");
+            // Enqueue the left node
+            if (current.getLeft() != null) {
+                queue.add(current.getLeft());
+            }
+            // Enqueue the right node
+            if (current.getRight() != null) {
+                queue.add(current.getRight());
+            }
+        }
+    }
 }
