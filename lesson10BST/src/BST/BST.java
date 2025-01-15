@@ -226,6 +226,20 @@ public class BST<E extends Comparable<E>> {
 
     // ######################################################################## //
 
+    public void inOrder() {
+        inOrder(root, 0);
+    }
+
+    public void inOrder(Node<E> root, int level) {
+        if (root == null)
+            return;
+        inOrder(root.getLeft(), level + 1);
+        System.out.println(root.getData());
+        inOrder(root.getRight(), level + 1);
+    }
+
+    // ######################################################################## //
+
     /*
      * Level Order Traversal or BFS is where the order of traversal is level base,
      * where all nodes present in the same level are traversed completely before
@@ -294,4 +308,11 @@ public class BST<E extends Comparable<E>> {
             }
         }
     }
+
+    // ######################################################################## //
+
+    /*  */
+
+    // ######################################################################## //
+
 }
