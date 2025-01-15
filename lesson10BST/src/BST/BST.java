@@ -164,6 +164,13 @@ public class BST<E extends Comparable<E>> {
             node = min(t.getRight());
             node.setRight(deleteMin(t.getRight()));
             node.setLeft(t.getLeft());
+            /*
+             * Usually, we need 3 use-cases (no leaf, a leaf and leafs), but here we only
+             * have 2 which are a leaf and leafs.
+             * The use-case for no leaf is embedded in the a leaf use-case. If a node has no
+             * leaf both the left and right are null. So, we just need to return either one
+             * of them and that was what we did.
+             */
         }
         return node;
     }
@@ -183,11 +190,11 @@ public class BST<E extends Comparable<E>> {
     }
 
     // ######################################################################## //
-    
+
     public void postOrder() {
         postOrder(root, 0);
     }
-    
+
     public void postOrder(Node<E> node, int level) {
         if (node == null) {
             return;
@@ -212,5 +219,11 @@ public class BST<E extends Comparable<E>> {
         preOrder(node.getRight(), level + 1);
     }
 
+    // ######################################################################## //
 
+    // public void levelOrderBFS() {
+    //     return;
+    // }
+
+    // public 
 }
