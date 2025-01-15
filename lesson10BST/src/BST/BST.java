@@ -311,7 +311,12 @@ public class BST<E extends Comparable<E>> {
 
     // ######################################################################## //
 
-    /*  */
+    /*
+     * DFS doesn't have any other names like BFS (Level Order Traversal). However,
+     * it has 3 types being Pre-order, In-order and Post-order. All of which I have
+     * implemented above. The key difference between all three and the most
+     * important when using DFS is where you put the `print` statement.
+     */
 
     // ######################################################################## //
 
